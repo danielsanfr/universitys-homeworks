@@ -4,7 +4,7 @@ Small homeworks, of various subjects, made during my graduation.
 
 Some of the subjects are:
 
-* Algorithms;
+* [Algorithms](https://github.com/danielsanfr/universitys-homeworks/tree/master/algorithms);
 * Data Structure;
 * [Operational Systems](https://github.com/danielsanfr/universitys-homeworks/tree/master/operational-system);
 * [Computer Networks 1](https://github.com/danielsanfr/universitys-homeworks/tree/master/computer-networks);

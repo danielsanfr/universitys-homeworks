@@ -1,4 +1,4 @@
-# Wireless Sensor Networks Homeworks
+# Wireless Sensor Networks Homework
 
 _This is a homework of the Wireless Sensor Networks discipline._
 
