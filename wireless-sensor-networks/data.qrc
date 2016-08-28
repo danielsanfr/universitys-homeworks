@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>data/annual.csv</file>
+        <file>data/monthly.csv</file>
+    </qresource>
+</RCC>

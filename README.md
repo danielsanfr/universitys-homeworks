@@ -9,4 +9,4 @@ Some of the subjects are:
 * [Operational Systems](https://github.com/danielsanfr/universitys-homeworks/tree/master/operational-system);
 * [Computer Networks 1](https://github.com/danielsanfr/universitys-homeworks/tree/master/computer-networks);
 * [Artificial Intelligence 1](https://github.com/danielsanfr/universitys-homeworks/tree/master/artificial-intelligence);
-* Wireless Sensor Networks;
+* [Wireless Sensor Networks](https://github.com/danielsanfr/universitys-homeworks/tree/master/wireless-sensor-networks);
