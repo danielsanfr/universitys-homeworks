@@ -6,7 +6,7 @@ Some of the subjects are:
 
 * Algorithms;
 * Data Structure;
-* Operational Systems;
+* [Operational Systems](https://github.com/danielsanfr/universitys-homeworks/tree/master/operational-system);
 * [Computer Networks 1](https://github.com/danielsanfr/universitys-homeworks/tree/master/computer-networks);
 * [Artificial Intelligence 1](https://github.com/danielsanfr/universitys-homeworks/tree/master/artificial-intelligence);
 * Wireless Sensor Networks;
