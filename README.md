@@ -8,5 +8,5 @@ Some of the subjects are:
 * Data Structure;
 * Operational Systems;
 * [Computer Networks 1](https://github.com/danielsanfr/universitys-homeworks/tree/master/computer-networks);
-* Artificial Intelligence 1;
+* [Artificial Intelligence 1](https://github.com/danielsanfr/universitys-homeworks/tree/master/artificial-intelligence);
 * Wireless Sensor Networks;
