@@ -1,0 +1,20 @@
+Gostaria de dizer primeiro que quando Unity foi lançado no Ubuntu 11.04 ey realmente não gostei e não usei, tanto que voltei parao Ubuntu 10.10.
+Porém no Ubuntu 11.10 ele vei muito melhor, mas usual e mais agradavel e estou usando ele atualmente ;).
+
+Agora falando do Ubuntu 12.04 eu realmente estava gostando as coisas que eu estava lendo sobre como ele esta ficando.
+Quando baixei o beta 2 e fui testar fiquei muito triste com pequenos detalhes que poderiam ter ficado como antes sem problema algum.
+
+Não vi a necessidade de terem mudado o alt+tab para que ficasse independente em cada área de trabalho, particularmente eu gosto do jeito que esta no 11.10, poderia ter a opção de deixar do jeito que o usuario bem queira, mas isso da para se acostumar.
+
+Agora vou tocar em 2 pontos que me deixaram desapontado logo de inicio.
+
+1º - O funcionamento do lançado, no inicio quando estava lendo pensei que so o comportamente padrão tinha mudado mas quando fui ver no MyUnity eles tiraram 2 comportamentos que estão presentes na versão 11.10 (Comportamentos presentes no Ubuntu 11.10: Smart, Avoid window, Hidden e Fixed), ficando no Ubuntu 12.04 apenas o Hidden e o Fixed.
+Gostaria de saber por que essa ideia de TIRAR uma coisa que estava funcionando sem problemas e que ja servia para a personalização do sistema????
+Tiago se você sober alguma forma de instalar esses outros 2 comportamentos no 12.04 por favor faça um poste sobre isso :).
+
+2º - Esse eu espero profundamente que seja um bug e se alguem ai achar que é também por favor reporte esse bug logo pois eu estou achando muito escroto estar assim :(.
+Só para constar eu não reporto porque infelizmente eu não sei bem como fazer isso, já uma dica para um poste aqui no blog que esta passando despercebido "Como reportar um Bug e assim ajudar no desenvolvimento do Ubuntu".
+Esse bug, que para é muito escroto, esta la na "Lente Aplicativos", é o seguinte, quando vou clicando nos filtros tipo: Grafico, Escritorio, Jogos, Acessorios e etc, o unity não vai mudando o filtro como é no Ubuntu 11.10, e foi um dos principais motivos para eu gostar do unity, ele vai "juntando", "somando" os filtros, realmente isso esta me deixando muito chateado e se realmente ele for se comportar assim agora e não tenha uma opção facil de reverter isso, que pra mim é uma verdadeira cagada, eu infelizmente vou ter que pensar em mudar ¬¬, juro que não quero fazer isso, mas vai ficar muito chato quando eu tiver procurando algo por ali :s.
+Se alguem souber algum mode de reverter isso e posso compartilhar eu vou ficar grato :).
+
+Desculpa o texto muito grande, e parabéns galera desse meu blog querido por serem tão bons no que fazem, sempre fica muito com os vossos postes ;).

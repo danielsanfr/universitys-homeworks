@@ -2,7 +2,7 @@
 
 _These are homeworks of the Operational Systems discipline._
 
-This repository contains the exercises, and homework, made ​​by me, of the discipline of [operating systems](https://sites.google.com/site/willytiengo/ensino/sistemas-operating) at my university, [UFAL](http://www.ufal.edu.br).
+This repository contains the exercises, and homework, made by me, of the discipline of [Operating Systems](https://sites.google.com/site/willytiengo/ensino/sistemas-operating) at my university, [UFAL](http://www.ufal.edu.br).
 
 Used languages: Assembly (NASM) | Assembly (GAS) | C
 
