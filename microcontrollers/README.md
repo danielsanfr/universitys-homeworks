@@ -12,4 +12,4 @@ Used languages: Assembly (PIC)
 
 Examples and exercises contained in this repository are based on the following references:
 
-* [Reference 1](http://www.google.com)
+* [Practices done in the classroom](https://github.com/rodrigopex/ecom059_2016_1)
