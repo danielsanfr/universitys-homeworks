@@ -14,7 +14,7 @@ To view this job, simply click the [README.ipynb](https://github.com/danielsanfr
 
 The results are in CSV files and plotted in graphs.
 
-If you want to generate the results,  just update the ".csv" files existing with data from their tests on JuliaBox. So, assuming you have a complete installation of **R environment** on your computer (including `r-cran-gplots` package in the case of Ubuntu), just run the following command to generate the graphs:
+If you want to generate the results,  just update the ".csv" files existing with data from their tests on JuliaBox. So, assuming you have a complete installation of **R environment** on your computer (including `r-cran-gplots` package in the case of **Ubuntu**), just run the following command to generate the graphs: `Rscript b-multicast.r` or `Rscript r-multicast.r`.
 
 ## References
 
