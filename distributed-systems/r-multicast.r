@@ -2,13 +2,13 @@
 library(gplots)
 
 # Load the data from a csv file
-data <- read.csv("b-multicast-data.csv", header=T)
+data <- read.csv("r-multicast-data.csv", header=T)
 
 # Produce result summaries of the results of various model fitting functions
 summary(data)
 
 # File name where the graph will be plotted
-png(filename="b-multicast-results-barplot.png", bg="white")
+png(filename="r-multicast-results-barplot.png", bg="white")
 
 # Self-descriptive
 legend <- c("Synchronous", "Asynchronous")
@@ -35,8 +35,8 @@ barplot2(averages, # The matrix to be plotted
          beside=TRUE, # Plot the side-by-side bars
          col=colors, # The colors of the bars
          legend=legend, # The legend
-         ylim=c(0, 0.004), # The maximum y-axis
-         main="Synchronous and Asynchronous B-multicast", # Main title
+         ylim=c(-0.03, 0.08), # The maximum y-axis
+         main="Synchronous and Asynchronous R-multicast", # Main title
          ylab="Time in seconds", # Label the y-axis
          plot.ci=TRUE, # TRUE, Must plot the confidence intervals
          ci.l=ic.lower, # The matrix of the lower limits of the confidence intervals
