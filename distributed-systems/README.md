@@ -8,6 +8,14 @@ Here is my Distributed Systems work at my university, [UFAL](http://www.ufal.edu
 
 **Teacher:** [André Lage Freitas](https://sites.google.com/a/ic.ufal.br/andrelage/)
 
+## Usage
+
+To view this job, simply click the [README.ipynb](https://github.com/danielsanfr/universitys-homeworks/blob/master/distributed-systems/README.ipynb) file. If you want to make any changes, just upload the [README.ipynb](https://github.com/danielsanfr/universitys-homeworks/blob/master/distributed-systems/README.ipynb) file to any folder on [JuliaBox](https://www.juliabox.com) environment and make the desired changes.
+
+The results are in CSV files and plotted in graphs.
+
+If you want to generate the results,  just update the ".csv" files existing with data from their tests on JuliaBox. So, assuming you have a complete installation of **R environment** on your computer (including `r-cran-gplots` package in the case of Ubuntu), just run the following command to generate the graphs:
+
 ## References
 
 For the development of this work was used the following references:
