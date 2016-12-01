@@ -15,10 +15,21 @@ max_time	EQU			D'50'
 			GOTO		setup			; Go to beginning of program
 
 			ORG			0x0004			; Interrupt vector
-			INCF		PORTA
+			BTFSC		PIR1,TMR1IF
+			CALL		handle_timer1
+			BTFSC		INTCON,INTF
+			CALL		handle_button
+			RETFIE
+
+handle_timer1:
+			INCF		PORTC
 			BCF			PIR1,TMR1IF
 			CALL		set_max_time
-			RETFIE
+			RETURN
+
+handle_button:
+			DECF		PORTC
+			RETURN
 
 set_max_time:
 			; =================== Set value to TMR1 overflow ===================
@@ -30,9 +41,14 @@ set_max_time:
 
 setup:
 			; =================== Configure PORTA as output ====================
+			CLRF		PORTA
+			CLRF		PORTC
 			BANKSEL		TRISA
 			MOVLW		0x00
 			MOVWF		TRISA
+			MOVLW		0x00
+			MOVWF		TRISC
+			BSF			TRISA,RA2
 
 			; ========================= Configure clock ========================
 			BANKSEL		OSCCON
@@ -41,7 +57,7 @@ setup:
 
 			; ====================== Enable interruptions ======================
 			BCF			PIR1,TMR1IF
-			MOVLW		B'11000000'		; GIE and PEIE
+			MOVLW		B'11010000'		; GIE and PEIE
 			MOVWF		INTCON
 			MOVLW		B'00000001'		; TMR1IE
 			MOVWF		PIE1
