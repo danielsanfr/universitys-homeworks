@@ -1,8 +1,7 @@
-#include "p16f628a.inc"
-
 ; CONFIG
-; __config 0xFF19
- __CONFIG _FOSC_INTOSCCLK & _WDTE_OFF & _PWRTE_OFF & _MCLRE_OFF & _BOREN_OFF & _LVP_OFF & _CPD_OFF & _CP_OFF
+; __config 0x30D5
+ __CONFIG _FOSC_INTOSCCLK & _WDTE_OFF & _PWRTE_OFF & _MCLRE_OFF & _CP_OFF & _CPD_OFF & _BOREN_OFF & _IESO_OFF & _FCMEN_OFF
+#include "p16f688.inc"
 
 total		EQU		h'20'
 count		EQU		h'21'
