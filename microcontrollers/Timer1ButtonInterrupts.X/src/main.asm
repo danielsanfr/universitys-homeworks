@@ -51,6 +51,7 @@ setup:
 			CALL		set_max_time
 
 loop:
+			SLEEP
 			GOTO		loop			; Loop forever
 
 			END
