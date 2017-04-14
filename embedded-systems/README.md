@@ -12,6 +12,7 @@ Used languages: C
 
 Examples and exercises contained in this repository are based on the following references:
 
+* [HELLO WORK arm from teacher](https://gitlab.com/rodrigopex_ic/EmbeddedSystems_ECOM042)
 * [OpenOCD](https://github.com/RIOT-OS/RIOT/wiki/OpenOCD)
 * [Programming STM32 Microcontroller Flash in Linux](https://startingelectronics.org/tutorials/STM32-microcontrollers/programming-STM32-flash-in-Linux/)
 * [Open Source version of the STMicroelectronics Stlink Tools](https://github.com/texane/stlink)
