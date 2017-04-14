@@ -1,15 +1,15 @@
 #include "p16f688.inc"
 
 ; CONFIG
-; __config 0xF0D5
- __CONFIG _FOSC_INTOSCCLK & _WDTE_OFF & _PWRTE_OFF & _MCLRE_OFF & _CP_OFF & _CPD_OFF & _BOREN_OFF & _IESO_OFF & _FCMEN_OFF
+; __config 0x30D4
+ __CONFIG _FOSC_INTOSCIO & _WDTE_OFF & _PWRTE_OFF & _MCLRE_OFF & _CP_OFF & _CPD_OFF & _BOREN_OFF & _IESO_OFF & _FCMEN_OFF
 
 #define		ON			1
 #define		OFF			0
 #define		INPUT		1
 #define		OUTPUT		0
 
-max_time	EQU			D'10'
+max_time	EQU			D'100'
 
 			ORG			0x0000			; Processor reset vector
 			GOTO		setup			; Go to beginning of program
@@ -30,9 +30,9 @@ setup:
 
 			; ================== Configure TMR0 and Prescaler ==================
 			BANKSEL		OPTION_REG
-			MOVLW		B'11010011'
+			MOVLW		B'11010110'
 			MOVWF		OPTION_REG
-			MOVLW		B'01100101'		; Configure internal clock to 4MHz
+			MOVLW		B'01100000'		; Configure internal clock to 4MHz
 			MOVWF		OSCCON
 
 			; ====================== Enable interruptions ======================
