@@ -8,12 +8,6 @@ Used languages: C
 
 **Teacher:** [Rodrigo Peixoto](https://www.github.com/rodrigopex)
 
-## Authors
-
-* Daniel San Ferreira da Rocha
-* Gabriel Melo
-* Jonathas Silva
-
 ## References
 
 Examples and exercises contained in this repository are based on the following references:
