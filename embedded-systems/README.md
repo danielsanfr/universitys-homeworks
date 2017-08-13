@@ -6,7 +6,7 @@ This repository contains the exercises, and homework, made by me, of the discipl
 
 Used languages: C
 
-**Teacher:** [Rodrigo Peixoto](https://www.github.com/rodrigopex)
+**Professor:** [Rodrigo Peixoto](https://www.github.com/rodrigopex)
 
 ## References
 

@@ -6,7 +6,7 @@ Here is my Distributed Systems work at my university, [UFAL](http://www.ufal.edu
 
 **Used languages:** Julia | MarkDown | R
 
-**Teacher:** [André Lage Freitas](https://sites.google.com/a/ic.ufal.br/andrelage/)
+**Professor:** [André Lage Freitas](https://sites.google.com/a/ic.ufal.br/andrelage/)
 
 ## Usage
 

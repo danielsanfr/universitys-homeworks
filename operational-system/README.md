@@ -6,7 +6,7 @@ This repository contains the exercises, and homework, made by me, of the discipl
 
 Used languages: Assembly (NASM) | Assembly (GAS) | C
 
-**Teacher:** [Willy Tiengo](https://sites.google.com/site/willytiengo/)
+**Professor:** [Willy Tiengo](https://sites.google.com/site/willytiengo/)
 
 ## References
 

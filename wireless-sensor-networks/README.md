@@ -12,4 +12,5 @@ The [first](https://github.com/danielsanfr/universitys-homeworks/tree/master/wir
 
 The [second](https://github.com/danielsanfr/universitys-homeworks/tree/master/wireless-sensor-networks/second) was using a simulator for wireless sensor networks called [JSensor](https://joubertlimadotcomdotbr.wordpress.com/jsensor-a-high-performance-java-simulator-for-sensor-networks/). For this it was necessary to study more, and better knowledge of what was being done, may apply the concept in the simulator.
 
-**Teacher:** [Andre L.L. Aquino](https://sites.google.com/site/allalinsufal/home/eletiva-1/20161)
+**Professor:** [Andre L.L. Aquino](https://sites.google.com/site/allalinsufal/home/eletiva-1/20161)
+
