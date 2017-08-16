@@ -1,0 +1,377 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{listings}
+\usepackage[brazilian]{babel}
+
+\title{Especificação da Linguagem de Programação SAN}
+\author{Daniel San Ferreira da Rocha}
+
+\begin{document}
+
+\clearpage\maketitle
+\thispagestyle{empty}
+
+\pagebreak
+
+\tableofcontents
+
+\pagebreak
+
+\section{Introdução}
+A linguagem de programação SAN foi desenvolvida para ser uma linguagem procedural, estaticamente
+e fortemente tipada. É permitido a criação de funções para uma melhor organização dos códigos
+desenvolvidos com esta linguagem.
+
+\section{Características Gerais}
+O início de todo programa escrito em SAN é a função principal (entry-point) \texttt{init}.
+Outras funções escritas devem estar definidas antes da função principal.
+
+As variáveis declaradas terão um escopo local e toda a instrução deve conter o caractere que
+delimita seu termino, que é o \textbf{ponto e vírgula}.
+
+Para delimitar escopo é usado o \texttt{"\{"} como início e o \texttt{"\}"} para finalizar.
+
+Também é permitido na linguagem SAN a inserção de comentários em uma linha, para isso basta
+iniciar seu comentário com \texttt{"\#"} e tudo que estiver após será desconsiderado.
+
+\section{Tipos de dados}
+Ao declarar uma variável, seu identificador deve obrigatoriamente se iniciado com uma letra
+(maiúscula ou minúscula), após isso é aceito qualquer caracter (sem acentuação), números e
+underline, porém é proíbido o uso de espaços em branco. Por fim o tamanho do identificador
+é inimitado.
+
+Para declarar uma variável na linguagem SAN é necessário usar uma palavra reservada que
+corresponde ao tipo de dado desejado (que será apresentado logo a baixo), seguido do
+identificador da variável.
+
+\subsection{Palavras reservadas}
+\begin{itemize}
+    \item \texttt{int} - Inteiro
+    \item \texttt{float} - Ponto Flutuante
+    \item \texttt{char} - Caractere
+    \item \texttt{bool} - Boleano
+    \item \texttt{str} - Cadeia de Caracteres
+    \item \texttt{array} - Arranjos Unidimensionais
+\end{itemize}
+
+\clearpage
+
+\subsection{Coerção}
+Por ser uma linguagem fortemente tipada não é permitido a coerção implícita de tipos, exeto para
+os tipos \texttt{int} e \texttt{float}. Caso um valor \texttt{float} sejá atribuido a uma variável
+\texttt{int}, apenas a parte inteira será considerada.
+
+\subsection{Operações}
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{|c|l|}
+         \hline
+         \textbf{Tipo} & \textbf{Operações Suportadas}\\
+         \hline
+         \texttt{int} & Atribuição, Aritiméticos e Relacionais\\
+         \hline
+         \texttt{float} & Atribuição, Aritiméticos e Relacionais\\
+         \hline
+         \texttt{char} & Atribuição, Relacionais\\
+         \hline
+         \texttt{bool} & Atribuição, Relacionais e Lógicos\\
+         \hline
+         \texttt{str} & Atribuição, Relacionais e Concatenação\\
+         \hline
+         \texttt{array} & Atribuição, Relacionais\\
+         \hline
+    \end{tabular}
+    \caption{As operação serão definidas na seção seguinte}
+\end{table}
+
+\section{Operadores}
+\subsection{Atribuição}
+Na linguagem SAN, \texttt{=} é o operador de atribuição. É necessário salientar que a atribuição
+de um valor a uma variável deve ser feita separadamente da sua declaração. Do lado esquerdo do
+operador deve ser fornecido o ID da variável e do lado direito o valor a ser atribuido (que
+necessáriamente deve ser do mesmo tipo). Segue um exemplo de declaração seguido da atribuição:
+
+\begin{lstlisting}
+int a; # Declaration
+a = 3; # Initialization
+\end{lstlisting}
+
+No momento da declaração a variável assumirá um valor padrão, que segue na tabela abaixo:
+\\
+\begin{center}
+    \begin{tabular}{|c|l|}
+         \hline
+         \textbf{Tipo} & \textbf{Valor Padrão}\\
+         \hline
+         \texttt{int} & \texttt{0} (zero)\\
+         \hline
+         \texttt{float} & \texttt{0.0} (zero)\\
+         \hline
+         \texttt{char} & \texttt{` '} (espaço em branco, em ASCII corresponde a 32)\\
+         \hline
+         \texttt{bool} & \texttt{false}\\
+         \hline
+         \texttt{str} & \texttt{``''} (cadeia de caracteres vazia)\\
+         \hline
+         \texttt{array} & Valor padrão do seu tipo\\
+         \hline
+    \end{tabular}
+\end{center}
+
+\subsection{Aritméticos}
+\begin{center}
+    \begin{tabular}{|c|c|}
+         \hline
+         + & Adição\\
+         \hline
+         - & Subtração\\
+         \hline
+         $\ast$ & Multiplicação\\
+         \hline
+         / & Divisão\\
+         \hline
+         $\wedge$ & Exponencial\\
+         \hline
+         $\sim$ & Unário Negativo\\
+         \hline
+    \end{tabular}
+\end{center}
+
+\subsection{Relacionais}
+\begin{center}
+    \begin{tabular}{|c|c|}
+         \hline
+         == & Igualdade\\
+         \hline
+         != & Diferença\\
+         \hline
+         > & Maior que\\
+         \hline
+         < & Menor que\\
+         \hline
+         >= & Maior ou igual que\\
+         \hline
+         <= & Menor ou igual que\\
+         \hline
+    \end{tabular}
+\end{center}
+
+\subsection{Lógicos}
+\begin{center}
+    \begin{tabular}{|c|c|}
+         \hline
+         \& & Conjunção\\
+         \hline
+         | & Disjunção\\
+         \hline
+         ! & Negação\\
+         \hline
+    \end{tabular}
+\end{center}
+
+\subsection{Concatenação de Caracteres}
+A concatenação de caracteres é possível por meio do operador \texttt{\%}.
+
+\subsection{Ordem de Precedência e Associatividade}
+A tabela a seguir irá mostrar a ordem de precedência dos operadores de forma decrescente com o
+número da linha assim como a sua regra de associatividade (DE = Direita para Esquerda, ED = 
+Esquerda para Direita):
+\begin{center}
+    \begin{tabular}{|c|c|}
+         \hline
+         \textbf{Operadores} & \textbf{Associatividade}\\
+         \hline
+         $\wedge$ & DE\\
+         \hline
+         $\sim$ & DE\\
+         \hline
+         +, -, $\ast$, / & ED\\
+         \hline
+         ==, !=, >, >=, <=, < & ED\\
+         \hline
+         \&, | & ED\\
+         \hline
+         = & DE\\
+         \hline
+    \end{tabular}
+\end{center}
+
+\hfill
+
+É permitido alterar a ordem de precedência dos operadores fazendo o uso de parenteses.
+Exemplo em: $1 + 2 * 3$, teriamos como resultado \texttt{7}, porém caso necessário podemos
+alterar a ordem como no exemplo: $(1 + 2) * 3$, que nos da um resultado \texttt{9}. Isso ocorre
+pois o que estiver entre os parenteses será computado primeiro.
+
+\section{Instruções}
+As estruturas apresentadas logo a baixo também deveram terminar com um terminador, nesse caso
+o \texttt{\$} será usado.
+
+\subsection{Estrutura Condicional de Uma e Duas Vias}
+Foi definido as seguintes estruturas: \texttt{if}, \texttt{if/else} e \texttt{if/elif/else}.
+Para utilizar a instução \texttt{if} é necessário fornecer uma condição lógica ou uma variável
+boleand \textbf{entre paratenses}, para que em caso afirmativo o seu respectivo bloco de código
+sejá executado. Em caso negativo ou nada é executado ou o bloco correspondente ao \texttt{else}
+será executado.
+
+Caso necessário, ainda é possível usar o recurso do \texttt{elif} para ter validações ``aninhadas''
+, que seguem a mesma regra do \texttt{if}. Ou sejá, caso a condição lógica seja afirmativa, o seu
+bloco é executado, caso negativo, ou nada é executado ou o próximo \texttt{elif} é testado ou
+o próximo bloco de \texttt{else} é que será executado.
+
+Abaixo é mostrado um exemplo com todas as possibilidades:
+\begin{lstlisting}
+if (a == b) {
+    # if command block
+}$
+
+# ...
+
+if (a == b) {
+    # if command block
+} else {
+    # else command block
+}$
+
+# ...
+
+if (a == b) {
+    # if command block
+} elif (a == c) {
+    # elif command block
+} else {
+    # else command block
+}$
+\end{lstlisting}
+
+\textit{Obs 1:. É considerado um caso afirmativo uma expressão lógica que tenha resultado verdade,
+ou qualquer valor diferente de 0.}
+
+\textit{OBs 2:. É possível ter quantos \texttt{elif} ``aninhas'' se deseje.}
+
+\subsection{Estrutura Iterativa com Controle Lógico}
+A instrução para esse objetivo é o \texttt{while}. As instruções contidas no seu bloco de código
+serão repetidas enquanto a condição lógica que o acompanha (assim como no \texttt{if} também
+fornecida \textbf{entre parenteses}) for verdadeira. Segue um exemplo:
+\begin{lstlisting}
+while (a == b) {
+    # while command block
+}$
+\end{lstlisting}
+
+\subsection{Estrutura Iterativa Controlada por Contador}
+Nessa estrutura, os comandos do seu bloco serão executado de 0 à n vezes, dependendo de que
+uma condição de termino sejá atinjida. Essa estruura receberá como \textbf{entre parenteses}
+variáveis iniciais, a condição limite (de termino) e um incremento opcional das variaáveis
+iniciadas. Essa estrutura tem por instrução a palavra reservada \texttt{for}. Segue um exemplo:
+\begin{lstlisting}
+for (i = 0; i < 10; i = i + 1) {
+    # for command block
+}$
+\end{lstlisting}
+
+\subsection{Entrada e Saída}
+Esta definido uma função para a entrada de dados, que recebe obrigatoriamente como parametro
+um identificador de uma variável que receberá o valor lido:
+\begin{lstlisting}
+read(<identificador>);
+\end{lstlisting}
+
+Também esta definido uma função para a saída de dados, que recebe obrigatoriamente como
+parametro o identificador da variável que se deseja escrever na saída:
+\begin{lstlisting}
+write(<identificador>);
+\end{lstlisting}
+
+\section{Funções}
+É possível definir funções para melhor estruturar o código escrito em SAN. Para tal é necessário
+definir um \textbf{nome} para a função, logo em seguida, \textbf{entre parenteses}, deve ser
+fornecido todos os parametros que essa função irá aceitar como entrada, cada um com seu respectivo
+tipo, após é obrigatório a declaração de um tipo de retorno.
+
+O retorno de uma função é feito meio da palavra reservada \texttt{return}.
+
+Para se declarar uma função existem algumas restrições:
+\begin{itemize}
+    \item Não é permitido o ``aninhamento'' de funções, ou sejá, cada função deve ser declarada
+    separadamente uma da outra;
+    \item Não é permitido a sobre-carga de funções, ou sejá, é necessário que todas as funções
+    tenham um \textbf{nome único};
+    \item Toda função deve ser declarada antes da função \textit{init}.
+\end{itemize}
+
+Exemplo:
+\begin{lstlisting}
+add(int a, int b) int {
+    return a + b;
+}$
+\end{lstlisting}
+
+A casos em que as funções não precisam retornar nenhum valor, para isso é possível que essa função
+sejá declarada com o retorno do tipo \texttt{nothing}. Nesse caso não será necessário o uso do
+\texttt{return} ao final da função. \textit{(\texttt{nothing}, é um tipo espécial que apenas é
+permitido como retorno de uma função, não sendo possível a declaração de uma variável com esse tipo.)}
+
+Exemplo de função com retorno fazio (\texttt{nothing}):
+\begin{lstlisting}
+log(str m) nothing {
+    write(m);
+}$
+\end{lstlisting}
+
+\section{Exemplos}
+
+\subsection{Hello World}
+\begin{lstlisting}
+init() nothing {
+    write("Hello World"); # Commentary
+}$
+\end{lstlisting}
+
+\pagebreak
+
+\subsection{Fibonacci}
+\begin{lstlisting}
+fibonacci(int n) int {
+    int f1;
+    int f2;
+    int fi;
+
+    if (n < 0) {
+        retun 0;
+    } elfi (n == 0 | n == 1) {
+        retun 1;
+    }$
+
+    f2 = 1;
+    while (fi < n) {
+        fi = f1 + f2;
+        f1 = f2;
+        f2 = fi;
+    }$
+
+    return fi;
+}$
+
+init() nothing {
+    int n;
+    read(n);
+    
+    int fib;
+    fib = fibonacci(n);
+    write(fib);
+}$
+\end{lstlisting}
+
+\pagebreak
+
+\subsection{Shell Sort}
+\begin{lstlisting}
+init() nothing {
+    write("Hello World"); # Commentary
+}$
+\end{lstlisting}
+
+\end{document}

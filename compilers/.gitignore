@@ -1,0 +1,8 @@
+specification/*.gz
+specification/*.pdf
+specification/*.aux
+specification/*.fdb*
+specification/*.fls
+specification/*.log
+specification/*.toc
+
