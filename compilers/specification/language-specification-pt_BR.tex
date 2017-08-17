@@ -38,8 +38,8 @@ iniciar seu comentário com \texttt{"\#"} e tudo que estiver após será descons
 
 \section{Tipos de dados}
 Ao declarar uma variável, seu identificador deve obrigatoriamente se iniciado com uma letra
-(maiúscula ou minúscula), após isso é aceito qualquer caracter (sem acentuação), números e
-underline, porém é proíbido o uso de espaços em branco. Por fim o tamanho do identificador
+(maiúscula ou minúscula), após isso é aceito qualquer carácter (sem acentuação), números e
+underline, porém é proibido o uso de espaços em branco. Por fim o tamanho do identificador
 é inimitado.
 
 Para declarar uma variável na linguagem SAN é necessário usar uma palavra reservada que
@@ -59,8 +59,8 @@ identificador da variável.
 \clearpage
 
 \subsection{Coerção}
-Por ser uma linguagem fortemente tipada não é permitido a coerção implícita de tipos, exeto para
-os tipos \texttt{int} e \texttt{float}. Caso um valor \texttt{float} sejá atribuido a uma variável
+Por ser uma linguagem fortemente tipada não é permitido a coerção implícita de tipos, exceto para
+os tipos \texttt{int} e \texttt{float}. Caso um valor \texttt{float} seja atribuído a uma variável
 \texttt{int}, apenas a parte inteira será considerada.
 
 \subsection{Operações}
@@ -70,9 +70,9 @@ os tipos \texttt{int} e \texttt{float}. Caso um valor \texttt{float} sejá atrib
          \hline
          \textbf{Tipo} & \textbf{Operações Suportadas}\\
          \hline
-         \texttt{int} & Atribuição, Aritiméticos e Relacionais\\
+         \texttt{int} & Atribuição, Aritméticos e Relacionais\\
          \hline
-         \texttt{float} & Atribuição, Aritiméticos e Relacionais\\
+         \texttt{float} & Atribuição, Aritméticos e Relacionais\\
          \hline
          \texttt{char} & Atribuição, Relacionais\\
          \hline
@@ -90,8 +90,8 @@ os tipos \texttt{int} e \texttt{float}. Caso um valor \texttt{float} sejá atrib
 \subsection{Atribuição}
 Na linguagem SAN, \texttt{=} é o operador de atribuição. É necessário salientar que a atribuição
 de um valor a uma variável deve ser feita separadamente da sua declaração. Do lado esquerdo do
-operador deve ser fornecido o ID da variável e do lado direito o valor a ser atribuido (que
-necessáriamente deve ser do mesmo tipo). Segue um exemplo de declaração seguido da atribuição:
+operador deve ser fornecido o ID da variável e do lado direito o valor a ser atribuído (que
+necessariamente deve ser do mesmo tipo). Segue um exemplo de declaração seguido da atribuição:
 
 \begin{lstlisting}
 int a; # Declaration
@@ -201,7 +201,7 @@ Esquerda para Direita):
 \hfill
 
 É permitido alterar a ordem de precedência dos operadores fazendo o uso de parenteses.
-Exemplo em: $1 + 2 * 3$, teriamos como resultado \texttt{7}, porém caso necessário podemos
+Exemplo em: $1 + 2 * 3$, teríamos como resultado \texttt{7}, porém caso necessário podemos
 alterar a ordem como no exemplo: $(1 + 2) * 3$, que nos da um resultado \texttt{9}. Isso ocorre
 pois o que estiver entre os parenteses será computado primeiro.
 
@@ -211,13 +211,13 @@ o \texttt{\$} será usado.
 
 \subsection{Estrutura Condicional de Uma e Duas Vias}
 Foi definido as seguintes estruturas: \texttt{if}, \texttt{if/else} e \texttt{if/elif/else}.
-Para utilizar a instução \texttt{if} é necessário fornecer uma condição lógica ou uma variável
-boleand \textbf{entre paratenses}, para que em caso afirmativo o seu respectivo bloco de código
-sejá executado. Em caso negativo ou nada é executado ou o bloco correspondente ao \texttt{else}
+Para utilizar a instrução \texttt{if} é necessário fornecer uma condição lógica ou uma variável
+boleana \textbf{entre parênteses}, para que em caso afirmativo o seu respectivo bloco de código
+seja executado. Em caso negativo ou nada é executado ou o bloco correspondente ao \texttt{else}
 será executado.
 
 Caso necessário, ainda é possível usar o recurso do \texttt{elif} para ter validações ``aninhadas''
-, que seguem a mesma regra do \texttt{if}. Ou sejá, caso a condição lógica seja afirmativa, o seu
+, que seguem a mesma regra do \texttt{if}. Ou seja, caso a condição lógica seja afirmativa, o seu
 bloco é executado, caso negativo, ou nada é executado ou o próximo \texttt{elif} é testado ou
 o próximo bloco de \texttt{else} é que será executado.
 
@@ -263,8 +263,8 @@ while (a == b) {
 
 \subsection{Estrutura Iterativa Controlada por Contador}
 Nessa estrutura, os comandos do seu bloco serão executado de 0 à n vezes, dependendo de que
-uma condição de termino sejá atinjida. Essa estruura receberá como \textbf{entre parenteses}
-variáveis iniciais, a condição limite (de termino) e um incremento opcional das variaáveis
+uma condição de termino seja atingida. Essa estrutura receberá como \textbf{entre parenteses}
+variáveis iniciais, a condição limite (de termino) e um incremento opcional das variáveis
 iniciadas. Essa estrutura tem por instrução a palavra reservada \texttt{for}. Segue um exemplo:
 \begin{lstlisting}
 for (i = 0; i < 10; i = i + 1) {
@@ -273,14 +273,14 @@ for (i = 0; i < 10; i = i + 1) {
 \end{lstlisting}
 
 \subsection{Entrada e Saída}
-Esta definido uma função para a entrada de dados, que recebe obrigatoriamente como parametro
+Esta definido uma função para a entrada de dados, que recebe obrigatoriamente como parâmetro
 um identificador de uma variável que receberá o valor lido:
 \begin{lstlisting}
 read(<identificador>);
 \end{lstlisting}
 
 Também esta definido uma função para a saída de dados, que recebe obrigatoriamente como
-parametro o identificador da variável que se deseja escrever na saída:
+parâmetro o identificador da variável que se deseja escrever na saída:
 \begin{lstlisting}
 write(<identificador>);
 \end{lstlisting}
@@ -288,16 +288,16 @@ write(<identificador>);
 \section{Funções}
 É possível definir funções para melhor estruturar o código escrito em SAN. Para tal é necessário
 definir um \textbf{nome} para a função, logo em seguida, \textbf{entre parenteses}, deve ser
-fornecido todos os parametros que essa função irá aceitar como entrada, cada um com seu respectivo
+fornecido todos os parâmetros que essa função irá aceitar como entrada, cada um com seu respectivo
 tipo, após é obrigatório a declaração de um tipo de retorno.
 
 O retorno de uma função é feito meio da palavra reservada \texttt{return}.
 
 Para se declarar uma função existem algumas restrições:
 \begin{itemize}
-    \item Não é permitido o ``aninhamento'' de funções, ou sejá, cada função deve ser declarada
+    \item Não é permitido o ``aninhamento'' de funções, ou seja, cada função deve ser declarada
     separadamente uma da outra;
-    \item Não é permitido a sobre-carga de funções, ou sejá, é necessário que todas as funções
+    \item Não é permitido a sobrecarga de funções, ou seja, é necessário que todas as funções
     tenham um \textbf{nome único};
     \item Toda função deve ser declarada antes da função \textit{init}.
 \end{itemize}
@@ -310,11 +310,11 @@ add(int a, int b) int {
 \end{lstlisting}
 
 A casos em que as funções não precisam retornar nenhum valor, para isso é possível que essa função
-sejá declarada com o retorno do tipo \texttt{nothing}. Nesse caso não será necessário o uso do
+seja declarada com o retorno do tipo \texttt{nothing}. Nesse caso não será necessário o uso do
 \texttt{return} ao final da função. \textit{(\texttt{nothing}, é um tipo espécial que apenas é
 permitido como retorno de uma função, não sendo possível a declaração de uma variável com esse tipo.)}
 
-Exemplo de função com retorno fazio (\texttt{nothing}):
+Exemplo de função com retorno vazio (\texttt{nothing}):
 \begin{lstlisting}
 log(str m) nothing {
     write(m);
