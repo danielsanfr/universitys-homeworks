@@ -339,14 +339,14 @@ fibonacci(int n) int {
     int f2;
     int fi;
 
-    if (n < 0) {
-        retun 0;
-    } elfi (n == 0 | n == 1) {
-        retun 1;
+    if (n <= 0) {
+        return 0;
+    } elfi (n == 1 | n == 2) {
+        return 1;
     }$
 
     f2 = 1;
-    while (fi < n) {
+    for (1; n - 1; 1) {
         fi = f1 + f2;
         f1 = f2;
         f2 = fi;
