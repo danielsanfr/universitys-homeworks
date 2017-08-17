@@ -36,32 +36,132 @@ Para delimitar escopo é usado o \texttt{"\{"} como início e o \texttt{"\}"} pa
 Também é permitido na linguagem SAN a inserção de comentários em uma linha, para isso basta
 iniciar seu comentário com \texttt{"\#"} e tudo que estiver após será desconsiderado.
 
+A forma geral de um program escrito em SAN será como se segue:
+\begin{lstlisting}
+init() nothing {
+    int a;
+    int b;
+    int sum;
+
+    a = 1;
+    b = 2;
+    sum = a + b;
+    write("Hello World"); # Commentary
+}
+\end{lstlisting}
+
+\subsection{Palavras Reservadas da Linguagem}
+As palavras que serão apresentadas logo a seguir são nomes exclusivos da linguagem, não podendo
+ser usados para declaração de variáveis ou de funções nos código em SAN.
+
+\begin{center}
+    \begin{tabular}{|c|}
+         \hline
+         \textbf{Tipo de Dados}\\
+         \hline
+         \texttt{int}\\
+         \hline
+         \texttt{float}\\
+         \hline
+         \texttt{char}\\
+         \hline
+         \texttt{bool}\\
+         \hline
+         \texttt{str}\\
+         \hline
+         \texttt{array}\\
+         \hline
+         \textbf{Valores Boleanos}\\
+         \hline
+         \texttt{true}\\
+         \hline
+         \texttt{false}\\
+         \hline
+         \textbf{Função Principal}\\
+         \hline
+         \texttt{init}\\
+         \hline
+         \textbf{Funções de Entrada e Saída}\\
+         \hline
+         \texttt{write}\\
+         \hline
+         \texttt{read}\\
+         \hline
+         \textbf{Retorno de Função}\\
+         \hline
+         \texttt{return}\\
+         \hline
+         \textbf{Tipo de Função com Retorno vazio}\\
+         \hline
+         \texttt{nothing}\\
+         \hline
+         \textbf{Instruções}\\
+         \hline
+         \texttt{if}\\
+         \hline
+         \texttt{else}\\
+         \hline
+         \texttt{elif}\\
+         \hline
+         \texttt{while}\\
+         \hline
+         \texttt{for}\\
+         \hline
+    \end{tabular}
+\end{center}
+
 \section{Tipos de dados}
-Ao declarar uma variável, seu identificador deve obrigatoriamente se iniciado com uma letra
-(maiúscula ou minúscula), após isso é aceito qualquer carácter (sem acentuação), números e
-underline, porém é proibido o uso de espaços em branco. Por fim o tamanho do identificador
-é inimitado.
+Ao declarar uma variável, seu identificador deve obrigatoriamente ser iniciado com uma letra
+(maiúscula ou minúscula), após isso, é aceito qualquer carácter (sem acentuação), números e
+underline, porém é proibido o uso de espaços em branco. A linguagem é case-sensitive, o que
+significa que ela considera o identificador \texttt{foo} diferente de \texttt{Foo}. Por fim o
+tamanho do identificador é inimitado.
 
 Para declarar uma variável na linguagem SAN é necessário usar uma palavra reservada que
 corresponde ao tipo de dado desejado (que será apresentado logo a baixo), seguido do
-identificador da variável.
+identificador da variável. Não é possível inicializar uma variável em SAN, portanto, será sempre
+necessário se declarar a variável e em comando diferente é que será feita a atribuição de um valor
+a variável.
 
 \subsection{Palavras reservadas}
-\begin{itemize}
-    \item \texttt{int} - Inteiro
-    \item \texttt{float} - Ponto Flutuante
-    \item \texttt{char} - Caractere
-    \item \texttt{bool} - Boleano
-    \item \texttt{str} - Cadeia de Caracteres
-    \item \texttt{array} - Arranjos Unidimensionais
-\end{itemize}
+\begin{center}
+    \begin{tabular}{|c|l|c|}
+         \hline
+         \textbf{Palavra} & \textbf{Descrição} & \textbf{Exemplo de Literal}\\
+         \hline
+         \texttt{int} & Inteiro & \texttt{42}\\
+         \hline
+         \texttt{float} & Ponto Flutuante & \texttt{3.14}\\
+         \hline
+         \texttt{char} & Caractere & \texttt{`a'}\\
+         \hline
+         \texttt{bool} & Boleano & \texttt{false} ou \texttt{true}\\
+         \hline
+         \texttt{str} & Cadeia de Caracteres & \texttt{``Hello World''}\\
+         \hline
+         \texttt{array} & Arranjos Unidimensionais & \texttt{array<int, 10>}\\
+         \hline
+    \end{tabular}
+\end{center}
 
-\clearpage
+\subsubsection{Arranjos Unidimensionais}
+Para a declaração do tipo de dado de arranjos unidimensionais, é necessário o fornecimento do
+tipo que será armazenado e do tamanho máximo de elementos desejados. Segue alguns exemplos de
+declaração:
+\begin{lstlisting}
+array<int, 5> ages;
+array<str, 10> names;
+\end{lstlisting}
+
+O acesso a um determinado item do arranjo poderá ser feito mediante o fornecimento do índice
+do item, onde esse índice é um número no intervalo $[0, n - 1]$, e onde $n$ é o número máximo de
+elementos fornecidos na declaração do arranjo. Esse acesso é feito da seguinte maneira:
+\begin{lstlisting}
+array[<index>];
+\end{lstlisting}
 
 \subsection{Coerção}
-Por ser uma linguagem fortemente tipada não é permitido a coerção implícita de tipos, exceto para
-os tipos \texttt{int} e \texttt{float}. Caso um valor \texttt{float} seja atribuído a uma variável
-\texttt{int}, apenas a parte inteira será considerada.
+Por ser uma linguagem fortemente tipada, não é permitido a coerção implícita entre tipos.
 
 \subsection{Operações}
 \begin{table}[h!]
@@ -95,7 +195,7 @@ necessariamente deve ser do mesmo tipo). Segue um exemplo de declaração seguid
 
 \begin{lstlisting}
 int a; # Declaration
-a = 3; # Initialization
+a = 3; # Assignment
 \end{lstlisting}
 
 No momento da declaração a variável assumirá um valor padrão, que segue na tabela abaixo:
@@ -132,7 +232,7 @@ No momento da declaração a variável assumirá um valor padrão, que segue na 
          \hline
          / & Divisão\\
          \hline
-         $\wedge$ & Exponencial\\
+         $\wedge$ & Exponenciação\\
          \hline
          $\sim$ & Unário Negativo\\
          \hline
@@ -171,8 +271,8 @@ No momento da declaração a variável assumirá um valor padrão, que segue na 
     \end{tabular}
 \end{center}
 
-\subsection{Concatenação de Caracteres}
-A concatenação de caracteres é possível por meio do operador \texttt{\%}.
+\subsection{Concatenação de Cadeias Caracteres}
+A concatenação de cadeias caracteres é possível por meio do operador \texttt{\%}.
 
 \subsection{Ordem de Precedência e Associatividade}
 A tabela a seguir irá mostrar a ordem de precedência dos operadores de forma decrescente com o
@@ -200,15 +300,12 @@ Esquerda para Direita):
 
 \hfill
 
-É permitido alterar a ordem de precedência dos operadores fazendo o uso de parenteses.
+É permitido alterar a ordem de precedência dos operadores fazendo o uso de parênteses.
 Exemplo em: $1 + 2 * 3$, teríamos como resultado \texttt{7}, porém caso necessário podemos
 alterar a ordem como no exemplo: $(1 + 2) * 3$, que nos da um resultado \texttt{9}. Isso ocorre
-pois o que estiver entre os parenteses será computado primeiro.
+pois o que estiver entre os parênteses será computado primeiro.
 
 \section{Instruções}
-As estruturas apresentadas logo a baixo também deveram terminar com um terminador, nesse caso
-o \texttt{\$} será usado.
-
 \subsection{Estrutura Condicional de Uma e Duas Vias}
 Foi definido as seguintes estruturas: \texttt{if}, \texttt{if/else} e \texttt{if/elif/else}.
 Para utilizar a instrução \texttt{if} é necessário fornecer uma condição lógica ou uma variável
@@ -225,7 +322,7 @@ Abaixo é mostrado um exemplo com todas as possibilidades:
 \begin{lstlisting}
 if (a == b) {
     # if command block
-}$
+}
 
 # ...
 
@@ -233,7 +330,7 @@ if (a == b) {
     # if command block
 } else {
     # else command block
-}$
+}
 
 # ...
 
@@ -243,34 +340,41 @@ if (a == b) {
     # elif command block
 } else {
     # else command block
-}$
+}
 \end{lstlisting}
 
 \textit{Obs 1:. É considerado um caso afirmativo uma expressão lógica que tenha resultado verdade,
 ou qualquer valor diferente de 0.}
 
-\textit{OBs 2:. É possível ter quantos \texttt{elif} ``aninhas'' se deseje.}
+\textit{Obs 2:. É possível ter quantos \texttt{elif} ``aninhados'' se deseje.}
+
+\textit{Obs 3:. É obrigatório o uso das \textbf{chaves} para delimitar o escopo de cada bloco
+\texttt{if}, \texttt{if/else} e \texttt{if/elif/else}.}
 
 \subsection{Estrutura Iterativa com Controle Lógico}
 A instrução para esse objetivo é o \texttt{while}. As instruções contidas no seu bloco de código
 serão repetidas enquanto a condição lógica que o acompanha (assim como no \texttt{if} também
-fornecida \textbf{entre parenteses}) for verdadeira. Segue um exemplo:
+fornecida \textbf{entre parênteses}) for verdadeira. Segue um exemplo:
 \begin{lstlisting}
 while (a == b) {
     # while command block
-}$
+}
 \end{lstlisting}
 
+\textit{Obs:. É obrigatório o uso das \textbf{chaves} para delimitar o escopo do bloco \texttt{while}.}
+
 \subsection{Estrutura Iterativa Controlada por Contador}
-Nessa estrutura, os comandos do seu bloco serão executado de 0 à n vezes, dependendo de que
-uma condição de termino seja atingida. Essa estrutura receberá como \textbf{entre parenteses}
-variáveis iniciais, a condição limite (de termino) e um incremento opcional das variáveis
-iniciadas. Essa estrutura tem por instrução a palavra reservada \texttt{for}. Segue um exemplo:
+Nessa estrutura, os comandos do seu bloco serão executado de um valor inicial \texttt{n} até um
+valor final \texttt{m} em um passo \texttt{p}. Essa estrutura receberá \textbf{entre parênteses}
+o valor inicial do contador, a condição limite (de termino) e um incremento. Essa estrutura tem
+por instrução a palavra reservada \texttt{for}. Segue um exemplo:
 \begin{lstlisting}
-for (i = 0; i < 10; i = i + 1) {
+for (<inicio>; <fim>; <passo>) {
     # for command block
-}$
+}
 \end{lstlisting}
+
+\textit{Obs:. É obrigatório o uso das \textbf{chaves} para delimitar o escopo do bloco \texttt{for}.}
 
 \subsection{Entrada e Saída}
 Esta definido uma função para a entrada de dados, que recebe obrigatoriamente como parâmetro
@@ -279,17 +383,17 @@ um identificador de uma variável que receberá o valor lido:
 read(<identificador>);
 \end{lstlisting}
 
-Também esta definido uma função para a saída de dados, que recebe obrigatoriamente como
-parâmetro o identificador da variável que se deseja escrever na saída:
+Também esta definido uma função para a saída de dados, que recebe obrigatoriamente como parâmetro
+o identificador de uma variável ou uma cadeia de caracteres literal, que se deseja escrever na saída:
 \begin{lstlisting}
-write(<identificador>);
+write(<identificador ou literal>);
 \end{lstlisting}
 
 \section{Funções}
 É possível definir funções para melhor estruturar o código escrito em SAN. Para tal é necessário
-definir um \textbf{nome} para a função, logo em seguida, \textbf{entre parenteses}, deve ser
-fornecido todos os parâmetros que essa função irá aceitar como entrada, cada um com seu respectivo
-tipo, após é obrigatório a declaração de um tipo de retorno.
+definir um \textbf{nome} (esse nome é case-sensitive) para a função, logo em seguida,
+\textbf{entre parênteses}, deve ser fornecido todos os parâmetros que essa função irá aceitar como
+entrada, cada um com seu respectivo tipo, após é obrigatório a declaração de um tipo de retorno.
 
 O retorno de uma função é feito meio da palavra reservada \texttt{return}.
 
@@ -306,7 +410,7 @@ Exemplo:
 \begin{lstlisting}
 add(int a, int b) int {
     return a + b;
-}$
+}
 \end{lstlisting}
 
 A casos em que as funções não precisam retornar nenhum valor, para isso é possível que essa função
@@ -318,7 +422,7 @@ Exemplo de função com retorno vazio (\texttt{nothing}):
 \begin{lstlisting}
 log(str m) nothing {
     write(m);
-}$
+}
 \end{lstlisting}
 
 \section{Exemplos}
@@ -327,10 +431,8 @@ log(str m) nothing {
 \begin{lstlisting}
 init() nothing {
     write("Hello World"); # Commentary
-}$
+}
 \end{lstlisting}
-
-\pagebreak
 
 \subsection{Fibonacci}
 \begin{lstlisting}
@@ -343,17 +445,17 @@ fibonacci(int n) int {
         return 0;
     } elfi (n == 1 | n == 2) {
         return 1;
-    }$
+    }
 
     f2 = 1;
     for (1; n - 1; 1) {
         fi = f1 + f2;
         f1 = f2;
         f2 = fi;
-    }$
+    }
 
     return fi;
-}$
+}
 
 init() nothing {
     int n;
@@ -362,16 +464,40 @@ init() nothing {
     int fib;
     fib = fibonacci(n);
     write(fib);
-}$
+}
 \end{lstlisting}
-
-\pagebreak
 
 \subsection{Shell Sort}
 \begin{lstlisting}
 init() nothing {
-    write("Hello World"); # Commentary
-}$
+    array<int, 5> arr;
+    int i;
+    int j;
+    int k;
+    int num;
+    int tmp;
+    
+    num = 5;
+    i = num / 2;
+    while (i > 0) {
+        j = i;
+        while (j < num) {
+            k = j - i
+            while (k >= 0) {
+                if (arr[k+i] >= arr[k]) {
+                    k = -1;
+                } else {
+                    tmp = arr[k];
+                    arr[k] = arr[k+i];
+                    arr[k+i] = tmp;
+                }
+                k = k - i;
+            }
+            j = j + 1;
+        }
+        i = i / 2;
+    }
+}
 \end{lstlisting}
 
 \end{document}
