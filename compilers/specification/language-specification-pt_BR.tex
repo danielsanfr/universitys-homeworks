@@ -1,9 +1,13 @@
-\documentclass[a4paper,11pt]{article}
+\documentclass[a4paper,12pt]{article}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{lmodern}
 \usepackage{listings}
+\usepackage{helvet}
 \usepackage[brazilian]{babel}
+\usepackage[margin=2cm,top=3cm,left=3cm]{geometry}
+
+\renewcommand{\familydefault}{\sfdefault}
 
 \title{Especificação da Linguagem de Programação SAN}
 \author{Daniel San Ferreira da Rocha}
@@ -466,6 +470,8 @@ init() nothing {
     write(fib);
 }
 \end{lstlisting}
+
+\pagebreak
 
 \subsection{Shell Sort}
 \begin{lstlisting}
