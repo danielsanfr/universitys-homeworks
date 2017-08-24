@@ -1,0 +1,230 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{listings}
+\usepackage{helvet}
+\usepackage[brazilian]{babel}
+\usepackage[margin=2cm,top=3cm,left=3cm]{geometry}
+
+\renewcommand{\familydefault}{\sfdefault}
+
+\title{Especificação dos Tokens da Linguagem SAN}
+\author{Daniel San Ferreira da Rocha}
+
+\begin{document}
+
+\section*{Especificação dos Tokens da Linguagem SAN}
+\subsection*{Liguagem para a Implementação dos Analisadores}
+A linguagem de programação escolhida para a implementação foi o \texttt{C++}.
+
+\section*{Tokens}
+\begin{lstlisting}
+enum TokenCaterogry : uint8_t {
+    GeneralEof,
+    GeneralInit,
+    GeneralNothing,
+    GeneralReturn,
+    GeneralId,
+    GeneralComment,
+    GeneralTerminator,
+    GeneralAssignment,
+    GeneralConcatenation,
+    // Type
+    TypeInt,
+    TypeFloat,
+    TypeChar,
+    TypeBool,
+    TypeStr,
+    TypeArray,
+    // Type Constants
+    ConstantsInt,
+    ConstantsFloat,
+    ConstantsChar,
+    ConstantsBool,
+    ConstantsStr,
+    ConstantsArray,
+    // Boolean
+    BooleanTrue,
+    BooleanFalse,
+    // IO
+    IoWrite,
+    IoRead,
+    // Instructions
+    InstructionsIf,
+    InstructionsElse,
+    InstructionsElif,
+    InstructionsWhile,
+    InstructionsFor,
+    // Arithmetic
+    ArithmeticAddition,
+    ArithmeticSubtraction,
+    ArithmeticMultiplication,
+    ArithmeticDivision,
+    ArithmeticExponentiation,
+    ArithmeticUnaryNegative,
+    // Relational
+    RelationalEquality,
+    RelationalDifference,
+    RelationalGreater,
+    RelationalLess,
+    RelationalGreaterOrEqual,
+    RelationalLessOrEqual,
+    // Logic
+    LogicConjunction,
+    LogicDisjunction,
+    LogicNegation,
+    // Scope
+    ScopeBegin,
+    ScopeEnd,
+    // Parameter
+    ParameterBegin,
+    ParameterEnd,
+    // Separator
+    SeparatorParameter,
+    SeparatorFor
+};
+\end{lstlisting}
+
+\hfill
+
+\subsection*{Expressões Regulares Auxiliares}
+\begin{lstlisting}
+letter = 'a' | 'b' | 'c' | 'd' | 'e' | 'f' | 'g' | 'h' |  
+'i' | 'j' | 'k' | 'l' | 'm' | 'n' | 'o' | 'p' | 'q' | 'r'  
+| 's' | 't' | 'u' | 'v' | 'w' | 'x' | 'y' | 'z' | 'A' |  
+'B' | 'C' | 'D' | 'E' | 'F' | 'G' | 'H' | 'I' | 'J' | 'K'  
+| 'L' | 'M' | 'N' | 'O' | 'P' | 'Q' | 'R' | 'S' | 'T' |  
+'U' | 'V' | 'W' | 'X' | 'Y' | 'Z';
+
+digit = '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9'; 
+
+symbol = ' ' | '.' | ',' | ':' | ';' | '?' | '!' | '+' | 
+'-' | '*' | '\' | '/' | '_' | '%' | '@' | '&' | '#' | '$'
+| '<' | '>' | '=' | '(' | ')' | '[' | ']' | '{' | '}' | 
+'|' | '\'' | '"';
+\end{lstlisting}
+
+\pagebreak
+
+\subsection*{Expressões Regulares dos Lexemas}
+\subsubsection*{Geral}
+\begin{lstlisting}
+GeneralInit = 'init'
+GeneralNothing = 'nothing'
+GeneralReturn = 'return'
+GeneralId = (letter | '_')('letter' | '_' | 'digit')*
+GeneralComment = '#'
+GeneralTerminator = ';'
+GeneralAssignment = '='
+GeneralConcatenation = '%'
+\end{lstlisting}
+
+\hfill
+
+\subsubsection*{Tipos}
+\begin{lstlisting}
+TypeInt = 'int'
+TypeFloat = 'float'
+TypeChar = 'char'
+TypeBool = 'bool'
+TypeStr = 'str'
+TypeArray = 'array'
+\end{lstlisting}
+
+\hfill
+
+\subsubsection*{Constantes}
+\begin{lstlisting}
+ConstantsInt = ('digit')('digit')*
+ConstantsFloat = ('digit')('digit')*('.')('digit')('digit')*
+ConstantsChar = (''')('letter' | 'digit' | 'symbol')(''')
+ConstantsBool = ('false' | 'true') 
+ConstantsStr = ('"')('letter' | 'digit' | 'symbol')*('"')
+\end{lstlisting}
+
+\hfill
+
+\subsubsection*{Boleana}
+\begin{lstlisting}
+BooleanTrue = 'true'
+BooleanFalse = 'false'
+\end{lstlisting}
+
+\hfill
+
+\subsubsection*{Entrada e Saída}
+\begin{lstlisting}
+IoWrite = 'write'
+IoRead = 'read'
+\end{lstlisting}
+
+\hfill
+
+\subsubsection*{Instruções}
+\begin{lstlisting}
+InstructionsIf = 'if'
+InstructionsElse = 'else'
+InstructionsElif = 'elif'
+InstructionsWhile = 'while'
+InstructionsFor = 'for'
+\end{lstlisting}
+
+\hfill
+
+\subsubsection*{Aritmética}
+\begin{lstlisting}
+ArithmeticAddition = '+'
+ArithmeticSubtraction = '-'
+ArithmeticMultiplication = '*'
+ArithmeticDivision = '/'
+ArithmeticExponentiation = '^'
+ArithmeticUnaryNegative = '~'
+\end{lstlisting}
+
+\hfill
+
+\subsubsection*{Relacional}
+\begin{lstlisting}
+RelationalEquality = '=='
+RelationalDifference = '!='
+RelationalGreater = '>'
+RelationalLess = '<'
+RelationalGreaterOrEqual = '>='
+RelationalLessOrEqual = '<='
+\end{lstlisting}
+
+\hfill
+
+\subsubsection*{Lógica}
+\begin{lstlisting}
+LogicConjunction = '&'
+LogicDisjunction = '|'
+LogicNegation = '!'
+\end{lstlisting}
+
+\hfill
+
+\subsubsection*{Escopo}
+\begin{lstlisting}
+ScopeBegin = '{'
+ScopeEnd = '}'
+\end{lstlisting}
+
+\hfill
+
+\subsubsection*{Parâmetros}
+\begin{lstlisting}
+ParameterBegin = '('
+ParameterEnd = ')'
+\end{lstlisting}
+
+\hfill
+
+\subsubsection*{Separador}
+\begin{lstlisting}
+SeparatorParameter = ','
+SeparatorFor = ';'
+\end{lstlisting}
+
+\end{document}
