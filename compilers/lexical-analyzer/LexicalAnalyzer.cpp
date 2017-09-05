@@ -68,6 +68,7 @@ Token LexicalAnalyzer::nextToken()
             tokenValue.append(1u, c);
             tokenValue.append(1u, m_line.at(++m_currentColumn));
             tokenValue.append(1u, m_line.at(++m_currentColumn));
+            m_currentColumn += 1;
         }
     } else if (lexicalTable->isSymbol(c)) {
         tokenValue.append(1u, c);
