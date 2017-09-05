@@ -1,0 +1,29 @@
+fibonacci(int n) int {
+    int f1;
+    int f2;
+    int fi;
+
+    if (n <= 0) {
+        return 0;
+    } elfi (n == 1 | n == 2) {
+        return 1;
+    }
+
+    f2 = 1;
+    for (1; n - 1; 1) {
+        fi = f1 + f2;
+        f1 = f2;
+        f2 = fi;
+    }
+
+    return fi;
+}
+
+init() nothing {
+    int n;
+    read(n);
+
+    int fib;
+    fib = fibonacci(n);
+    write(fib);
+}

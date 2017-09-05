@@ -18,7 +18,7 @@ string Token::toString()
        << ", column=" << setfill('0') << setw(4) << column
        << ", categoryNumber=" << setfill('0') << setw(2) << categoryNumber
        << ", categoryName=" << categoryName
-       << ", value=" << value << ")";
+       << ", value= " << value << ")";
     return ss.str();
 }
 
@@ -35,6 +35,16 @@ string Token::getCategoryName(TokenCategory category)
         return "GeneralReturn";
     case TokenCategory::GeneralId:
         return "GeneralId";
+    case TokenCategory::GeneralFunction:
+        return "GeneralFunction";
+    case TokenCategory::GeneralComment:
+        return "GeneralComment";
+    case TokenCategory::GeneralTerminator:
+        return "GeneralTerminator";
+    case TokenCategory::GeneralAssignment:
+        return "GeneralAssignment";
+    case TokenCategory::GeneralConcatenation:
+        return "GeneralConcatenation";
     case TokenCategory::TypeInt:
         return "TypeInt";
     case TokenCategory::TypeFloat:
@@ -47,6 +57,18 @@ string Token::getCategoryName(TokenCategory category)
         return "TypeStr";
     case TokenCategory::TypeArray:
         return "TypeArray";
+    case TokenCategory::ConstantsInt:
+        return "ConstantsInt";
+    case TokenCategory::ConstantsFloat:
+        return "ConstantsFloat";
+    case TokenCategory::ConstantsChar:
+        return "ConstantsChar";
+    case TokenCategory::ConstantsBool:
+        return "ConstantsBool";
+    case TokenCategory::ConstantsStr:
+        return "ConstantsStr";
+    case TokenCategory::ConstantsArray:
+        return "ConstantsArray";
     case TokenCategory::BooleanTrue:
         return "BooleanTrue";
     case TokenCategory::BooleanFalse:
@@ -95,6 +117,18 @@ string Token::getCategoryName(TokenCategory category)
         return "LogicDisjunction";
     case TokenCategory::LogicNegation:
         return "LogicNegation";
+    case TokenCategory::ScopeBegin:
+        return "ScopeBegin";
+    case TokenCategory::ScopeEnd:
+        return "ScopeEnd";
+    case TokenCategory::ParameterBegin:
+        return "ParameterBegin";
+    case TokenCategory::ParameterEnd:
+        return "ParameterEnd";
+    case TokenCategory::SeparatorParameter:
+        return "SeparatorParameter";
+    case TokenCategory::SeparatorFor:
+        return "SeparatorFor";
     default:
         return "UNDEFINED";
     }

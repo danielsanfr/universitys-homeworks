@@ -9,6 +9,7 @@ enum TokenCategory : uint8_t {
     GeneralNothing,
     GeneralReturn,
     GeneralId,
+    GeneralFunction,
     GeneralComment,
     GeneralTerminator,
     GeneralAssignment,

@@ -7,7 +7,7 @@ using namespace std;
 
 int main()
 {
-    LexicalAnalyzer la = LexicalAnalyzer(new FileCodeReader("../LexicalAnalyzer/samples/hello-world.san"));
+    LexicalAnalyzer la = LexicalAnalyzer(new FileCodeReader("../LexicalAnalyzer/samples/fibonacci.san"));
     while (la.hasNextToken()) {
         cout << la.nextToken().toString() << endl;
     }

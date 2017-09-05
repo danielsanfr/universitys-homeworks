@@ -62,9 +62,24 @@ Token LexicalAnalyzer::nextToken()
             }
         }
     } else if (c == '\'') {
+        if (m_currentColumn + 2 == m_line.length()) {
+            tokenValue = "";
+        } else {
+            tokenValue.append(1u, c);
+            tokenValue.append(1u, m_line.at(++m_currentColumn));
+            tokenValue.append(1u, m_line.at(++m_currentColumn));
+        }
+    } else if (lexicalTable->isSymbol(c)) {
         tokenValue.append(1u, c);
-        tokenValue.append(1u, m_line.at(++m_currentColumn));
-        tokenValue.append(1u, m_line.at(++m_currentColumn));
+        m_currentColumn += 1;
+        if (m_currentColumn < m_line.length()) {
+            string tmp = tokenValue;
+            tmp.append(1u, m_line.at(m_currentColumn));
+            if (lexicalTable->getCategoryFromValue(tmp) != TokenCategory::GeneralEof) {
+                tokenValue = tmp;
+                m_currentColumn += 1;
+            }
+        }
     } else if (c != '#') {
         while (true) {
             m_currentColumn += 1;
@@ -95,6 +110,15 @@ Token LexicalAnalyzer::nextToken()
         cerr << "Lexical error at l" << m_currentLine << "c" << m_currentColumn << endl;
         exit(-1);
     }
+
+    if (category == TokenCategory::GeneralId) {
+        int tmp = m_currentColumn;
+        if (getNextChar() == '(') {
+            category = TokenCategory::GeneralFunction;
+        }
+        m_currentColumn = tmp;
+    }
+
     return Token(m_currentLine, m_currentColumn, category, tokenValue);
 }
 
