@@ -66,7 +66,10 @@ enum TokenCategory : uint8_t {
     ParameterEnd,
     // Separator
     SeparatorParameter,
-    SeparatorFor
+    SeparatorFor,
+    // Array Access
+    ArrayBegin,
+    ArrayEnd
 };
 
 #endif // TOKENCATEGORY_HPP

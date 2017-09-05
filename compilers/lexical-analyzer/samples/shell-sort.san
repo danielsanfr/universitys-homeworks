@@ -1,0 +1,30 @@
+init() nothing {
+    array<int, 5> arr;
+    int i;
+    int j;
+    int k;
+    int num;
+    int tmp;
+    
+    num = 5;
+    i = num / 2;
+    while (i > 0) {
+        j = i;
+        while (j < num) {
+            k = j - i
+            while (k >= 0) {
+                if (arr[k+i] >= arr[k]) {
+                    k = -1;
+                } else {
+                    tmp = arr[k];
+                    arr[k] = arr[k+i];
+                    arr[k+i] = tmp;
+                }
+                k = k - i;
+            }
+            j = j + 1;
+        }
+        i = i / 2;
+    }
+}
+

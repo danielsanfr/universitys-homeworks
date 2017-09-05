@@ -129,6 +129,10 @@ string Token::getCategoryName(TokenCategory category)
         return "SeparatorParameter";
     case TokenCategory::SeparatorFor:
         return "SeparatorFor";
+    case TokenCategory::ArrayBegin:
+        return "ArrayBegin";
+    case TokenCategory::ArrayEnd:
+        return "ArrayEnd";
     default:
         return "UNDEFINED";
     }

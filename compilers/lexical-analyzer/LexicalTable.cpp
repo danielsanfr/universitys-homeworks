@@ -70,7 +70,7 @@ void LexicalTable::populateLexeme()
     putLexemeRegex("[0-9]+", TokenCategory::ConstantsInt);
     putLexemeRegex("[+|-]?([0-9]*\\.[0-9]+)", TokenCategory::ConstantsFloat);
     // TODO: Verify this case
-    putLexeme("", TokenCategory::ConstantsChar);
+    putLexeme("\'(\\.|[^\'])\'", TokenCategory::ConstantsChar);
     putLexemeRegex("true|false", TokenCategory::ConstantsBool);
     putLexemeRegex("[a-zA-Z_]?\"(\\.|[^\"])*\"", TokenCategory::ConstantsStr);
     // TODO: Verify this case
@@ -131,6 +131,9 @@ void LexicalTable::populateLexeme()
     // Separator
     putLexeme(",", TokenCategory::SeparatorParameter);
     putLexeme(";", TokenCategory::SeparatorFor);
+    // Array Access
+    putLexeme("[", TokenCategory::ArrayBegin);
+    putLexeme("]", TokenCategory::ArrayEnd);
 }
 
 void LexicalTable::putLexeme(string key, TokenCategory value)
