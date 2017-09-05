@@ -1,0 +1,10 @@
+init() nothing {
+    int a;
+    a = 1;
+    float b; #
+#
+    b = 2.1; # asdadsd
+    # asdasd
+    # asdasd
+    write("Hello World");    #    Commentary
+}
